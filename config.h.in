@@ -1,0 +1,4 @@
+//the version, will be pumped in from the CMake file
+
+#define POC_VERSION_MAJOR @POC_VERSION_MAJOR@
+#define POC_VERSION_MINOR @POC_VERSION_MINOR@
