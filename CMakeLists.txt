@@ -36,7 +36,8 @@ find_package(RapidJSON)
 #add the namespace
 
 
-add_executable (POC eb_pms.cpp)
+add_executable (POC eb_pms.cpp url_binder.cpp  )
+
 target_link_libraries (POC INTERFACE)
 
 #find boost **not sure why we need boost library link here**

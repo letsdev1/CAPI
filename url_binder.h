@@ -23,18 +23,24 @@
 #include "./include/rapidjson/writer.h"
 #include "./include/rapidjson/stringbuffer.h"
 
+#include "./helpers/logger.h"
+
 #include "server_http.hpp"
 
 
+int gethostname(char *name, size_t len);
+
 
 namespace EBPMS{
-
     class URLBinder{
-        public: URLBinder();
         using HttpServer = SimpleWeb::Server<SimpleWeb::HTTP>;
-        int gethostname(char *name, size_t len);
+
+        public: URLBinder();
         std::string getComputerName();
         std::string getRamSize();
-        void bindURL_string(); //HttpServer *server
+        void bindURL_string(HttpServer *server); //
+        void bindURL_postData(HttpServer *server); //
+        void bindURL_putData(HttpServer *server); //
+        void bindURL_deleteData(HttpServer *server); //
     }; // class url binder ends
 } //namespace ends

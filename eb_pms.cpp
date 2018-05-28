@@ -22,15 +22,19 @@ int main(){ //int args, char* argv
 
 
     //calling the bindURL function to bind it with
-    bindUrls(&server);
 
+    bindUrls(&server);
 
     //start server
     thread server_thread([&server]() {
     // Start server
+        std::cout << "Starting server" << std::endl;
         server.start();
   });
 
+  
+
+    std::cout << "Code to start server" << std::endl;
   server_thread.join();
 
 }
@@ -46,7 +50,12 @@ void bindUrls(HttpServer *server){
     Binder binder; //will create object of binder. 
                     //Somehow I don't understand this concept. Declaring it will create an object? Really?
 
-    binder.bindURL_string();
+    binder.bindURL_string(server);
+    binder.bindURL_postData(server);
+    binder.bindURL_putData(server);
+    binder.bindURL_deleteData(server);
+
+
 }
 
 
